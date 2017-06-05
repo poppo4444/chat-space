@@ -3,6 +3,7 @@
 ## user table
 
 |column|type|options|
+|--|--|--|
 |body|text||
 |image|string||
 |group_id|integer||
