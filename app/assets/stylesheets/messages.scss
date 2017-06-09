@@ -1,3 +1,148 @@
-// Place all the styles related to the messages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+html{
+    height: 100vh;
+  body{ 
+    height: 100vh;
+    #header{
+      background-color: #38aef0;
+      height:20px;
+      text-align: center;
+    }
+    #sidebar{
+      background-color: #2f3e51;
+      height: 100vh;
+      width: 300px;
+      float:left;
+        .fa_icon{
+          color:white
+        }
+        .username{
+          background-color: #253141;
+          height: 100px;
+          padding-left: 20px;
+          padding-right: 20px;
+            span.username{
+              color: #ffffff;
+              margin-right:20px;
+              font-size: 16px;
+              font-weight: bold;
+              text-align: center;
+              line-height: 100px;
+            }
+      }
+        .group{
+          background-color: #2f3e51;
+          height: 50px;
+          margin-left: 20px;
+          margin-right: 20px;
+           p.font1{
+              margin-top: 20px;
+              font-size: 15px;
+              color: #ffffff;
+              }
+            p.font2{
+              margin-top:5px;
+              font-size: 11px;
+              color: #ffffff;
+              }
+            p.font3{
+              margin-top:40px;
+              font-size: 10px;
+              color: #ffffff;
+              }
+          
+        }
+    }
+
+      #main{
+      height: 100vh;
+      width: calc(100vw - (300px));
+      background-color: #AAAAAA;
+      float:right;
+      position: relative;
+          .editbotton{
+            color:#38aef0;
+            height:40px;
+            width: 20px;
+            padding-left:20px;
+            padding-right:20px;
+            margin-top:28px;
+            margin-right:40px;
+            margin-left: 40px;
+            float:right;
+            text-align: center;
+            line-height: 40px;
+            border-color: #38aef0;
+            border-style: solid;
+            position: relative;
+          }
+          .groupname{
+            background-color: #FFFFFF;
+            height: 100px;
+            border-bottom:solid 1px #eeeeee;
+            padding-left: 40px;
+            padding-right: 40px;
+               p.grouptitle{
+                  color: #333333;
+                  font-size: 20px;
+                  padding-top: 35px;
+                  padding-bottom: 15px;
+                 }
+               p.member{
+                color:#999999;
+                font-size: 12px;
+                vertical-align-align: top;
+               }
+        }
+          .tweetspace{
+            background-color: #AAAAAA;
+            padding-left: 40px;
+            padding-right: 40px;
+            p.username{
+              font-size: 16px;
+              font-weight: bold;
+              color:#434a54;
+              float: left;
+            }
+            p.text{
+              font-size: 14px;
+              color:#434a54;
+            }
+            a.timesstamp{
+              margin-left: 10px;
+              font-size: 12px;
+              color: #999999;
+            }
+          }
+
+          .tweetbox{
+            background-color: white;
+            height:50px;
+            width: calc(100vw - (300px));
+            padding-left:50px;
+            margin-top:20px;
+            margin-bottom: 20px;
+            font-size:16px;
+            color:#434a54;
+            position: absolute;
+            bottom: 0;
+            .fa_icon{
+              float:right;
+              margin-right:120px;
+            }
+          }
+          .sendbotton{
+            color:white;
+            background-color: #38aef0;
+            height: 50px;
+            width: 60px;
+            position: absolute;
+            margin-top:20px;
+            margin-bottom: 20px;
+            bottom: 0;
+            right: 0;
+            text-align: center;
+            line-height: 50px;
+          }
+      }
+  }
+}

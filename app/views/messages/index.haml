@@ -1,1 +1,35 @@
-<p>hello,world</p>
+!!!
+%html{lang: "ja"}
+  %head
+    %meta{charset: "utf-8"}
+      %link{ href: "messages.scss", rel: "stylesheet"}
+  %body
+    #header
+      %p チャットグループが作成されました。
+    #sidebar
+      .username
+        %span.username aritomo 
+        = fa_icon "edit 1x", class: "fa_icon"
+        = fa_icon "gear 1x", class: "fa_icon"
+      .group
+        %p.font1 神
+        %p.font2 sdkfiedlf
+        %p.font3 group-name
+
+    #main
+      .editbotton
+        %p edit
+      .groupname
+        %p.grouptitle sampleグループ
+        %p.member MEMBER:aritomo
+
+      .tweetspace
+        %p.username aritomo
+        %a.timesstamp 2017/06/06 17:36:24
+        %p.text なかなか完成しないなあ
+      .tweetbox
+        %p tweetbox
+        = fa_icon "photo" ,class: "fa_icon"
+      .sendbotton
+        %p send
+       
