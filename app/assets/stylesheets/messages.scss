@@ -1,27 +1,33 @@
+$light-blue: #38aef0;
+$white: #ffffff;
+$black: #aaaaaa;
+$deeepblue:#2f3e51;
+$deepblue:#253141;
+
 html{
     height: 100vh;
   body{ 
     height: 100vh;
     #header{
-      background-color: #38aef0;
+      background-color: $light-blue;
       height:20px;
       text-align: center;
     }
     #sidebar{
-      background-color: #2f3e51;
+      background-color: $deeepblue;
       height: 100vh;
       width: 300px;
       float:left;
         .fa_icon{
-          color:white
+          color: $white;
         }
         .username{
-          background-color: #253141;
+          background-color: $deepblue;
           height: 100px;
           padding-left: 20px;
           padding-right: 20px;
             span.username{
-              color: #ffffff;
+              color: $white;
               margin-right:20px;
               font-size: 16px;
               font-weight: bold;
@@ -37,17 +43,17 @@ html{
            p.font1{
               margin-top: 20px;
               font-size: 15px;
-              color: #ffffff;
+              color: $white;
               }
             p.font2{
               margin-top:5px;
               font-size: 11px;
-              color: #ffffff;
+              color: $white;
               }
             p.font3{
               margin-top:40px;
               font-size: 10px;
-              color: #ffffff;
+              color: $white;
               }
           
         }
@@ -56,11 +62,11 @@ html{
       #main{
       height: 100vh;
       width: calc(100vw - (300px));
-      background-color: #AAAAAA;
+      background-color: $white;
       float:right;
       position: relative;
           .editbotton{
-            color:#38aef0;
+            color:$light-blue;
             height:40px;
             width: 20px;
             padding-left:20px;
@@ -92,6 +98,7 @@ html{
                 font-size: 12px;
                 vertical-align-align: top;
                }
+        
         }
           .tweetspace{
             background-color: #AAAAAA;
@@ -112,6 +119,7 @@ html{
               font-size: 12px;
               color: #999999;
             }
+          
           }
 
           .tweetbox{
@@ -129,6 +137,7 @@ html{
               float:right;
               margin-right:120px;
             }
+          
           }
           .sendbotton{
             color:white;
@@ -143,6 +152,9 @@ html{
             text-align: center;
             line-height: 50px;
           }
+      
       }
+  
   }
+
 }
