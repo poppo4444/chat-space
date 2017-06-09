@@ -6,30 +6,30 @@
   %body
     #header
       %p チャットグループが作成されました。
-    #sidebar
-      .username
-        %span.username aritomo 
+    .sidebar
+      .user
+        %span{class: "user--name user--name__font" }aritomo
         = fa_icon "edit 1x", class: "fa_icon"
         = fa_icon "gear 1x", class: "fa_icon"
       .group
-        %p.font1 神
-        %p.font2 sdkfiedlf
-        %p.font3 group-name
+        %p{class: "group--name group--name__font"} グループ名
+        %p{class: "group--message group--message__font"} message
 
-    #main
-      .editbotton
-        %p edit
-      .groupname
-        %p.grouptitle sampleグループ
-        %p.member MEMBER:aritomo
+    .main
+      .edit-botton
+        %p Edit
+      .group
+        %p{class: "group--name group--name__font"} sampleグループ
+        %p{class: "group--member group--member__font"} MEMBER:aritomo
 
-      .tweetspace
-        %p.username aritomo
-        %a.timesstamp 2017/06/06 17:36:24
-        %p.text なかなか完成しないなあ
-      .tweetbox
-        %p tweetbox
+      .tweet-space
+        %p.tweet-space--username aritomo
+        %a.tweet-space--timesstamp 2017/06/06 17:36:24
+        %p.tweet-space--text なかなか完成しないなあ
+      .tweet-box
+        %p tweet-box
         = fa_icon "photo",class: "fa_icon"
-      .sendbotton
+      .send-botton
         %p send
        
+
