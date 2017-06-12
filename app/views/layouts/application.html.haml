@@ -14,7 +14,7 @@
           =link_to 'プロフィール変更',edit_user_registration_path
           =link_to 'ログアウト',destroy_user_session_path, method:delete
         -else
-          =link_to 'サインアップ',edit_user_registration_path
+          =link_to 'サインアップ' ,new_user_registration_path
           =link_to 'ログイン',new_user_session_path
     %p.notice notice
     %p.alert alert 
