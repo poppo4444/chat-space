@@ -4,18 +4,18 @@
       %h2 Edit Account
       %h5 アカウントの編集
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
-      = link_to "トップページに戻る", :back, class: 'btn'
+      = link_to "トップページに戻る", root_path, class: 'btn'
     .account-page__inner--right.user-form
       = form_for(current_user) do |f|
         .field
           .field-label
             = f.label :name
-          .field-input
+          .field-input 
             = f.text_field :name, autofocus: true
         .field
           .field-label
             = f.label :email
-          .field-input
+          .field-inputs
             = f.email_field :email
         .actions
           = f.submit "Update", class: 'btn'
