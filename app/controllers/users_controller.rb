@@ -4,12 +4,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
+    if
+      current_user.update(user_params)
+      render template: "messages/index"
+    else
+      render 'edit'
+    end
   end
 
   private
   def user_params
-    params.permit(:name, :email)
+    params.require(:user).permit(:name, :email)
   end
 
 
