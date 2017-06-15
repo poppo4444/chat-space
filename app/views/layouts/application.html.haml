@@ -16,6 +16,10 @@
         -else
           =link_to 'サインアップ' ,new_user_registration_path
           =link_to 'ログイン',new_user_session_path
-    %p.notice= notice
-    %p.alert= alert 
+        =if notice
+          %p.notice
+            = notice
+        =if alert
+          %p.alert
+            = alert 
     = yield
