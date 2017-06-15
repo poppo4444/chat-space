@@ -17,9 +17,9 @@
           =link_to 'サインアップ' ,new_user_registration_path
           =link_to 'ログイン',new_user_session_path
         =if notice
-          %p.notice
+          %p.alert.alert-notice
             = notice
         =if alert
-          %p.alert
+          %p.alert.alert-error
             = alert 
     = yield
