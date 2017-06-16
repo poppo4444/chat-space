@@ -16,10 +16,8 @@
         -else
           =link_to 'サインアップ' ,new_user_registration_path
           =link_to 'ログイン',new_user_session_path
-        =if notice
-          %p.alert.alert-notice
-            = notice
-        =if alert
-          %p.alert.alert-error
-            = alert 
+
+        - flash.each do |key, value|
+          =content_tag :p, value, class: "alert alert-#{key} flashmessage"
+
     = yield
