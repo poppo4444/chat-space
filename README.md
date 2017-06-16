@@ -21,7 +21,7 @@ has_many :groups ,through: :members
 |id|integer||
 |body|text||
 |image|text||
-|user_id|integer|foreign_key: true|
+|user_id|integer|null:false,foreign_key: true|
 |times_stamp|datetime|null:false|
 
 ### Association
@@ -34,7 +34,7 @@ belongs_to :groups
 |column|type|options|
 |--|--|--|
 |id|integer||
-|name|string|null:false|
+|name|string|null:false, unique:true|
 
 ### Association
 
@@ -46,6 +46,7 @@ has_many :users ,through: :members
 |column|type|options|
 |--|--|--|
 |id|integer||
+|name|string|null:false|
 |group_id|integer|foreign_key: true|
 |user_id|integer|foreign_key: true|
 
