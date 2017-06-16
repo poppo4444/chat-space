@@ -1,6 +1,6 @@
 # chat-space1
 
-## users table
+## user table
 
 |column|type|options|
 |--|--|--|
@@ -9,41 +9,47 @@
 |email|string|null:false|
 |password|string|null:false,unique:true|
 
-# Association
+### Association
 
-has_many: :messages
-has_many: :members
+has_many :messages
+has_many :groups ,through: :members
 
-## messages table
+## message table
 
 |column|type|options|
 |--|--|--|
-|body|string|null:false|
+|id|integer||
+|body|text||
+|image|text||
 |user_id|integer|foreign_key: true|
 |times_stamp|datetime|null:false|
 
-# Association
+### Association
 
-belongs_to: :users
+belongs_to :users
+belongs_to :groups
 
-## groups
-
-|column|type|options|
-|--|--|--|
-|id|string|null:false|
-|group_name|string|null:false|
-
-# Association
-
-has_many: :members
-
-## members
+## group table
 
 |column|type|options|
 |--|--|--|
+|id|integer||
+|name|string|null:false|
+
+### Association
+
+has_many :members
+has_many :users ,through: :members
+
+## members table
+
+|column|type|options|
+|--|--|--|
+|id|integer||
 |group_id|integer|foreign_key: true|
 |user_id|integer|foreign_key: true|
 
-# Association
+### Association
 
-belongs_to: :users,groups
+belongs_to :users
+belongs_to :groups
