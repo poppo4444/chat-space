@@ -5,8 +5,8 @@
 |column|type|options|
 |--|--|--|
 |id|integer||
-|name|string|null:false,unique:true|
-|email|string|null:false,unique:true|
+|name|string|null:false|
+|email|string|null:false|
 |password|string|null:false,unique:true|
 
 # Association
@@ -18,9 +18,9 @@ has_many: :members
 
 |column|type|options|
 |--|--|--|
-|body|string|null:false,unique:true|
-|user_id|integer||
-|times_stamp|datetime|null:false,unique:true|
+|body|string|null:false|
+|user_id|integer|foreign_key: true|
+|times_stamp|datetime|null:false|
 
 # Association
 
@@ -30,19 +30,19 @@ belongs_to: :users
 
 |column|type|options|
 |--|--|--|
-|id|string|null:false,unique:true|
-|group_name|string|null:false,unique:true|
+|id|string|null:false|
+|group_name|string|null:false|
 
 # Association
 
-has_many: :users_groups
+has_many: :members
 
 ## members
 
 |column|type|options|
 |--|--|--|
-|group_id|integer||
-|user_id|integer||
+|group_id|integer|foreign_key: true|
+|user_id|integer|foreign_key: true|
 
 # Association
 
