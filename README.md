@@ -5,14 +5,15 @@
 |column|type|options|
 |--|--|--|
 |id|integer||
-|name|string|null:false|
+|name|string|null: false,unique: true,|
 |email|string|null:false|
-|password|string|null:false,unique:true|
+|password|string|null:false|
 
 ### Association
 
 has_many :messages
-has_many :groups ,through: :members
+has_many :groups ,through: :users_groups
+add_index :users, :name
 
 ## message table
 
@@ -21,7 +22,7 @@ has_many :groups ,through: :members
 |id|integer||
 |body|text||
 |image|text||
-|user_id|integer|null:false,foreign_key: true|
+|user_id|integer|null: false,foreign_key: true|
 |times_stamp|datetime|null:false|
 
 ### Association
@@ -38,15 +39,14 @@ belongs_to :groups
 
 ### Association
 
-has_many :members
-has_many :users ,through: :members
+has_many :messages
+has_many :users ,through: :users_groups
 
-## members table
+## users_groups table
 
 |column|type|options|
 |--|--|--|
 |id|integer||
-|name|string|null:false|
 |group_id|integer|foreign_key: true|
 |user_id|integer|foreign_key: true|
 
