@@ -28,10 +28,12 @@
         <div id='user-search-result'></div>
         </div>
     .chat-group-form__field.clearfix
-      = form_for(@group) do |s|
+      = form_for(@group) do |f|
         .chat-group-form__field--left
-          = s.label :name, "チャットメンバー", class:"chat-group-form__label"
+          = f.label :name, "チャットメンバー", class:"chat-group-form__label"
         .chat-group-form__field--right
+          = f.collection_check_boxes(:users_group_ids, UsersGroup.all, :id, :name) do |b|
+            = b.label { b.check_box + b.text }
 
 
 
