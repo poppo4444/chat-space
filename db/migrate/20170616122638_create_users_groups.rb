@@ -5,7 +5,6 @@ class CreateUsersGroups < ActiveRecord::Migration[5.0]
       t.integer :user_id,foreign_key: true
       t.timestamps
 
-    add_index :users,:name
     end
   end
 end
