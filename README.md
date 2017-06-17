@@ -13,6 +13,7 @@
 
 has_many :messages
 has_many :groups ,through: :users_groups
+has_many :users_groups
 add_index :users, :name
 
 ## message table
@@ -41,7 +42,7 @@ belongs_to :groups
 
 has_many :messages
 has_many :users ,through: :users_groups
-
+has_many :users_groups
 ## users_groups table
 
 |column|type|options|
