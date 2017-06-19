@@ -7,11 +7,15 @@
     .sidebar
       .user
         %span{class: "user--name user--name__font" }aritomo
-        = fa_icon "edit 1x", class: "fa_icon"
+        = fa_icon "edit 1x", class: "fa_icon", action:"groups/new"
         = fa_icon "gear 1x", class: "fa_icon"
       .group
-        %p{class: "group--name group--name__font"} グループ名
-        %p{class: "group--message group--message__font"} message
+        - @group.each do |t|
+          %p{class: "group--name group--name__font"}= t.name
+          %p{class: "group--message group--message__font"} まだメッセージはありません。
+
+          / %p{class: "group--name group--name__font"}= @group.name
+          / %p{class: "group--message group--message__font"} message
 
     .main
       .edit-botton
