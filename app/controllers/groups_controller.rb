@@ -7,10 +7,10 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
       if @group.save 
-        redirect_to controller: 'messages', action: 'index', flash: {notice: "グループの作成に成功しました"}
+        redirect_to root_path, notice: "グループが作成されました"
 
       else
-        render action: new
+        render new_group_path
       end
   end
 
