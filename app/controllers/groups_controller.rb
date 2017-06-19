@@ -8,9 +8,8 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
       if @group.save 
         redirect_to root_path, notice: "グループが作成されました"
-
       else
-        render new_group_path
+        render 'new'
       end
   end
 
