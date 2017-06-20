@@ -1,0 +1,15 @@
+.main
+  %p.edit-botton
+  .group
+    %p.group--name.group--name__font= @group.name
+    %p.group--member.group--member__font= @group.users.name
+
+  .tweet-space
+    %p.tweet-space--username aritomo
+    %a.tweet-space--timesstamp 2017/06/06 17:36:24
+    %p.tweet-space--text なかなか完成しないなあ
+  .tweet-box
+    %p tweet-box
+    = fa_icon "photo",class: "fa_icon"
+  .send-botton
+    %p send

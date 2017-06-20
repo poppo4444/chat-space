@@ -1,0 +1,9 @@
+#new_chat_group.new_chat_group
+  -if @group.errors.count >0
+    .chat-group-form__errors
+      %h2
+        = @group.errors.count 
+        件のエラーがあります
+        %ul
+        - @group.errors.full_messages.each do |msg|
+          %li= msg

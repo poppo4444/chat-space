@@ -1,0 +1,12 @@
+.sidebar
+  .user
+    %span.user--name.user--name__font= current_user.name
+    = link_to new_group_path do
+      = fa_icon "edit 1x", class: "fa_icon"
+    = link_to edit_user_path(current_user) do
+      = fa_icon "gear 1x", class: "fa_icon"
+  - current_user.groups.each do |groups|
+    .group
+      %p.group--name.group--name__font
+        = link_to groups.name, edit_group_path(groups.id)
+      %p.group--message.group--message__font まだメッセージはありません
