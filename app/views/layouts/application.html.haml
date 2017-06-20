@@ -9,6 +9,5 @@
   %body
     %header
       - flash.each do |key, value|
-        =content_tag :p, value, class: "alert alert-#{key} flashmessage"
-
+        = content_tag :p, value, class: "alert flashmessage__#{key}"
     = yield

@@ -12,10 +12,11 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    if @group.save 
+    if @group.save
       redirect_to root_path, notice: "グループが作成されました"
     else
-      redirect_to new_group_path, notice: "エラーが発生しました"
+      flash.now[:alert] = "エラーが発生しました"
+      render 'new'
     end
   end
 
@@ -23,11 +24,11 @@ class GroupsController < ApplicationController
   end
 
   def update
-      if @group.update(group_params)
-        redirect_to root_path, notice: "グループが編集されました"
-      else
-        redirect_to edit_group_path, notice: "エラーが発生しました"
-      end
+    if @group.update(group_params)
+      redirect_to root_path, notice: "グループが編集されました"
+    else
+      render 'edit', alert: "エラーが発生しました"
+    end
   end
 
   private
