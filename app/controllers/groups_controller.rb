@@ -27,7 +27,7 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to root_path, notice: "グループが編集されました"
     else
-      render 'edit', alert: "エラーが発生しました"
+      render :edit, alert: "エラーが発生しました"
     end
   end
 

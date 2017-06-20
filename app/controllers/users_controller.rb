@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if  current_user.update(user_params)
       render template: "messages/index"
     else
-      render 'edit'
+      render :edit
     end
   end
 
