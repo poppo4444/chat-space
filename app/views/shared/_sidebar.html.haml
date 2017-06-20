@@ -1,0 +1,11 @@
+.sidebar
+  .user
+    %span.user--name.user--name__font aritomo
+    = link_to new_group_path do
+      = fa_icon "edit 1x", class: "fa_icon"
+    = link_to edit_user_path(current_user) do
+      = fa_icon "gear 1x", class: "fa_icon"
+  .group
+    - current_user.groups.each do |t|
+      %p.group--name.group--name__font= t.name
+      %p.group--message.group--message__font まだメッセージはありません
