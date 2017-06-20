@@ -2,10 +2,7 @@
   %p.edit-botton
   .group
     %p.group--name.group--name__font= @group.name
-    - @group.each do |group|
-      - group.users.each do |user|
-        %p.group--member.group--member__font 
-          = user.name
+    %p.group--member.group--member__font= @group.name
 
   .tweet-space
     %p.tweet-space--username aritomo
