@@ -3,7 +3,8 @@
   #new_chat_group.new_chat_group
     .chat-group-form__errors
       %h2
-        = @group.errors.count
+      -if @group.errors.count >0
+        = @group.errors.count 
         件のエラーがあります
         %ul
         - @group.errors.full_messages.each do |msg|
