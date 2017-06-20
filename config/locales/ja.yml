@@ -5,6 +5,8 @@ ja:
         name: 名前
       group:
         name: グループ名
+        edit: 編集
+        new: 新規
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
