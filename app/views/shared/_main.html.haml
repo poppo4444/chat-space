@@ -1,8 +1,11 @@
 .main
-  %p.edit-botton Edit
+  %p.edit-botton
   .group
-    %p.group--name.group--name__font sampleグループ
-    %p.group--member.group--member__font MEMBER:aritomo
+    %p.group--name.group--name__font= @group.name
+    - @group.each do |group|
+      - group.users.each do |user|
+        %p.group--member.group--member__font 
+          = user.name
 
   .tweet-space
     %p.tweet-space--username aritomo
@@ -13,4 +16,3 @@
     = fa_icon "photo",class: "fa_icon"
   .send-botton
     %p send
-    
