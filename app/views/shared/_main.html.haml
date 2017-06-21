@@ -1,5 +1,6 @@
 .main
-  %p.edit-botton
+  = link_to edit_group_path(@group.id) do
+    .edit-botton Edit
   .group
     %p.group--name.group--name__font= @group.name
     %p.group--member.group--member__font= @group.users.name
