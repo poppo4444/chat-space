@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170620114140) do
     t.text     "body",       limit: 65535
     t.text     "image",      limit: 65535
     t.integer  "user_id",                  null: false
+    t.integer  "group_id",                 null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :users, only: [:update,:edit]
   devise_for :users
   resources :groups, except: [:destroy,:show] do
-    resources :messages, only: [:new,:show,:index,:create]
+    resources :messages, only: [:new,:index,:create]
   end
 end
