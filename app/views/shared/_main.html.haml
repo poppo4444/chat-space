@@ -10,7 +10,8 @@
     %a.tweet-space--timesstamp 2017/06/06 17:36:24
     %p.tweet-space--text なかなか完成しないなあ
   .tweet-box
-    %p tweet-box
-    = fa_icon "photo",class: "fa_icon"
-  .send-botton
-    %p send
+    = form_for([@group, @message]) do |f|
+      = f.text_field :body, placeholder: "メッセージを入力してください"
+      = fa_icon "photo",class: "fa_icon"
+      = f.file_field :image
+      = f.submit "Send", class: 'chat-group-form__action-btn' 
