@@ -1,7 +1,8 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
-
+  require 'carrierwave/storage/fog'
+  
   storage :fog
 
   process convert: 'jpg'
