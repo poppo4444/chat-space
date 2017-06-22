@@ -14,6 +14,6 @@
   .tweet-box
     = form_for([@group, @message]) do |f|
       = f.text_field :body, class:"tweet-box--form",placeholder: "メッセージを入力してください"
-      = f.file_field :image do
-        = fa_icon "photo", class: "tweet-box--fa_icon"
+      = f.file_field :image
+      %i.fa.fa-photo
       = f.submit "Send", class: 'tweet-box--send-botton'

@@ -7,5 +7,4 @@ module ApplicationHelper
       puts "最新のメッセージはありません"
     end
   end
-
 end
