@@ -5,10 +5,11 @@
     %p.group--name.group--name__font= @group.name
     %p.group--member.group--member__font= @group.users.name
 
-  .tweet-space
-    %p.tweet-space--username aritomo
-    %a.tweet-space--timesstamp 2017/06/06 17:36:24
-    %p.tweet-space--text なかなか完成しないなあ
+  - @messages.each do |message|
+    .tweet-space
+      %p.tweet-space--username= message.user.name
+      %a.tweet-space--timesstamp= message.created_at.strftime('%Y/%m/%d %H:%M')
+      %p.tweet-space--text= message.body
   .tweet-box
     = form_for([@group, @message]) do |f|
       = f.text_field :body, placeholder: "メッセージを入力してください"
