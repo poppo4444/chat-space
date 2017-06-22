@@ -5,13 +5,15 @@
     %p.group--name.group--name__font= @group.name
     %p.group--member.group--member__font= @group.users.name
 
-  .tweet-space
-    %p.tweet-space--username aritomo
-    %a.tweet-space--timesstamp 2017/06/06 17:36:24
-    %p.tweet-space--text なかなか完成しないなあ
+  - @messages.each do |message|
+    .tweet-space
+      %p.tweet-space--username= message.user.name
+      %a.tweet-space--timesstamp= message.created_at
+      %p.tweet-space--text= message.body
+      = image_tag message.image, class: "tweet-space--image"
   .tweet-box
     = form_for([@group, @message]) do |f|
-      = f.text_field :body, placeholder: "メッセージを入力してください"
-      = fa_icon "photo",class: "fa_icon"
+      = f.text_field :body, class:"tweet-box--form",placeholder: "メッセージを入力してください"
       = f.file_field :image
-      = f.submit "Send", class: 'chat-group-form__action-btn' 
+      %i.fa.fa-photo
+      = f.submit "Send", class: 'tweet-box--send-botton'

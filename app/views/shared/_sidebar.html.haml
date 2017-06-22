@@ -5,9 +5,9 @@
       = fa_icon "edit 1x", class: "fa_icon"
     = link_to edit_user_path(current_user) do
       = fa_icon "gear 1x", class: "fa_icon"
-  - current_user.groups.each do |groups|
-    .group
-      %p.group--name.group--name__font
-        = link_to groups.name, group_messages_path(groups.id)
-      %p.group--message.group--message__font まだメッセージはありません
-
+  - current_user.groups.each do |group|
+    = link_to group_messages_path(group.id) do
+      .group
+        .group--name.group--name__font group.name
+        %p.group--message.group--message__font
+          = group_messages_present?(group)

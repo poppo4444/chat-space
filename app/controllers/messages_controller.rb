@@ -24,6 +24,8 @@ class MessagesController < ApplicationController
 
   def find_group_params_id
     @group = Group.find(params[:group_id])
+    @messages = @group.messages.includes(:user).order('created_at DESC')
+
   end
 
 end
