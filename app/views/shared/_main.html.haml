@@ -10,9 +10,10 @@
       %p.tweet-space--username= message.user.name
       %a.tweet-space--timesstamp= message.created_at.strftime('%Y/%m/%d %H:%M')
       %p.tweet-space--text= message.body
+      = image_tag message.image, class: "tweet-space--image"
   .tweet-box
     = form_for([@group, @message]) do |f|
-      = f.text_field :body, placeholder: "メッセージを入力してください"
-      = fa_icon "photo",class: "fa_icon"
-      = f.file_field :image
-      = f.submit "Send", class: 'chat-group-form__action-btn' 
+      = f.text_field :body, class:"tweet-box--form",placeholder: "メッセージを入力してください"
+      = f.file_field :image do
+        = fa_icon "photo", class: "tweet-box--fa_icon"
+      = f.submit "Send", class: 'tweet-box--send-botton'

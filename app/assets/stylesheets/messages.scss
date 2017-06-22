@@ -119,38 +119,48 @@ html{
               font-size: 12px;
               color: $light-gray;
             }
+            &--image{
+              max-width: 300px;
+              height: auto;
+            }
           
           }
 
           .tweet-box{
-            background-color: white;
-            height:50px;
+            background-color: $light-gray;
+            height:90px;
             width: calc(100vw - (300px));
-            padding-left:50px;
-            margin:20px 0;
+            padding: 20px 50px 20px 40px;
+            margin:20px 0 0 ;
             font-size:16px;
             color:#434a54;
             position: absolute;
             bottom: 0;
-            .fa_icon{
+            &--form{
+              background-color: $white;
+              height:50px;
+              border: none;
+              box-sizing: border-box;
+              float: left;
+              padding: 0 10px;
+              width: calc(100% - 150px);
+              float:left;
+            }
+            &--fa_icon{
               float:right;
               margin-right:160px;
             }
           
+          
+            &--send-botton{
+              color:white;
+              background-color: $light-blue;
+              height: 50px;
+              width: 60px;
+              text-align: center;
+              float:right;
           }
-          .send-botton{
-            color:white;
-            background-color: $light-blue;
-            height: 50px;
-            width: 60px;
-            position: absolute;
-            margin:20px 0;
-            bottom: 0;
-            right: 0;
-            text-align: center;
-            line-height: 50px;
-          }
-      
+      }    
       }
   
   }
