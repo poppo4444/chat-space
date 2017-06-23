@@ -1,10 +1,11 @@
 FactoryGirl.define do
 
   factory :message do
-    body              "texttexttext"
+
     image             { File.open("spec/file/003.png") }
-    user_id           "2"
-    group_id          "4"
+    body              { Faker::Lorem.sentence}
+    user_id           { Faker::Number.number(2)}
+    group_id          { Faker::Number.number(2)}
   end
 
 end
