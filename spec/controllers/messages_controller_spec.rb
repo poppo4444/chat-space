@@ -71,16 +71,14 @@ describe MessagesController, type: :controller do
       end
       context "ログインしているが保存に失敗した時" do
         before do
-        post :create, params: invalid
+        post :create, params: message_params{{message: attributes_for(:message,{body: nil,image: nil})}}
         end
           it "保存に失敗したか" do
             expect do
-              post :create, params: invalid
-              end.not_to change(Message, :count)
+            end.not_to change(Message, :count)
           end
 
           it "メッセージ保存失敗時にgroup/indexに遷移するか" do
-            post :create, params: invalid
             expect(response).to render_template :index
           end
 
