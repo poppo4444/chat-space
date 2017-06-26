@@ -144,10 +144,9 @@ html{
               float: left;
               padding: 0 10px;
               width: calc(100% - 150px);
-              float:left;
             }
             &--fa_icon{
-              float:right;
+              float:left;
               margin-right:160px;
             }
           
@@ -159,11 +158,17 @@ html{
               width: 60px;
               text-align: center;
               float:right;
-          }
+            }
       }    
       }
   
   }
+
+// .new_file{
+//   input{
+//     display: none;
+//   }
+// }
 
 }
 
