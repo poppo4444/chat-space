@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   before_action :find_group_params_id, only: [:index,:create]
-
+  before_action :authenticate_user!
   def index
     @message = Message.new
   end
