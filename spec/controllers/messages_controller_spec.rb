@@ -71,7 +71,7 @@ describe MessagesController, type: :controller do
       end
       context "ログインしているが保存に失敗した時" do
         before do
-        post :create, params: message_params{{message: attributes_for(:message,{body: nil,image: nil})}}
+          post :create, params: message_params{{message: attributes_for(:message,{body: nil,image: nil})}}
         end
           it "保存に失敗したか" do
             expect do

@@ -15,3 +15,5 @@
 /vendor/bundle/
 user-materials/
 /public/
+
+/spec/file/
