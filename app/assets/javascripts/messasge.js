@@ -1,10 +1,10 @@
 $(function(){
-  function buildHTML(message){
-    var messege_username = {<p class="tweet-space--username"> ${message.user_name} </p>};
-    var message_body = { <a class="tweet-box--form"> ${message.body} </p> };
-    var message_image = { <img class="tweet-space--image" src="${message.image}" </p> };
+  var messege_username = {<p class="tweet-space--username"> ${message.user_name} </p>};
+  var message_body = { <a class="tweet-box--form"> ${message.body} </p> };
+  var message_image = { <img class="tweet-space--image" src="${message.image}" </p> };
 
-    var html = `
+    function message_HTML(message){
+      var html = `
       message_username
       message_body
       message_image
@@ -12,13 +12,13 @@ $(function(){
     return html;
   };
 
-  function buildHTML(message){
-    var bodyonly = `
-      message_username
-      message_body
-      `
-    return html;
-  };
+    function image_null_HTML(message){
+      var bodyonly = `
+        message_username
+        message_body
+        `
+      return html;
+    };
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -39,10 +39,10 @@ $(function(){
       $prepend
       $val
         if ( data.image == null ){
-          var bodyonly = buildHTML(data);
+          var message_HTML(data);
           };
         else{
-          var html = buildHTML(data);
+          var image_null_HTML(data);
           };
       });
     .fail(function(){
