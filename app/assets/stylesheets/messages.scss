@@ -66,44 +66,49 @@ html{
         float:right;
         position: relative;
         .edit-botton{
-            color:$light-blue;
-            height:40px;
-            width: 20px;
-            padding:0 20px;
-            margin:28px 40px 0;
-            float:right;
-            text-align: center;
-            line-height: 40px;
-            border-color: $light-blue;
-            border-style: solid;
-            position: relative;
+          color:$light-blue;
+          height:40px;
+          width: 20px;
+          padding:0 20px;
+          margin:28px 40px 0;
+          float:right;
+          text-align: center;
+          line-height: 40px;
+          border-color: $light-blue;
+          border-style: solid;
+          position: relative;
         }
-          .group{
-            background-color: $white;
-            height: 100px;
-            border-bottom:solid 1px #eeeeee;
-            padding-left: 40px;
-              &--name{
-                padding-top: 35px;
-                padding-bottom: 15px;
-                &__font{
-                  color: #333333;
-                  font-size: 20px;
-                }
+        .group{
+          background-color: $white;
+          height: 100px;
+          border-bottom:solid 1px #eeeeee;
+          padding-left: 40px;
+            &--name{
+              padding-top: 35px;
+              padding-bottom: 15px;
+              &__font{
+                color: #333333;
+                font-size: 20px;
               }
-              &--member{
+            }
+            &--member{
+              color:$light-gray;
+              font-size: 12px;
+              vertical-align-align: top;
+              &__font{
                 color:$light-gray;
                 font-size: 12px;
-                vertical-align-align: top;
-                &__font{
-                  color:$light-gray;
-                  font-size: 12px;
-                }
               }
+            }
         
           }
-          .tweet-space{
-            padding: 0 40px;
+        .message{
+          background-color: $white;
+          box-sizing: border-box;
+          height: calc(100vh - 100px - 90px);
+          overflow: scroll;
+          padding: 46px 40px 0;
+          &--space{
             &--username{
               font-size: 16px;
               font-weight: bold;
@@ -123,46 +128,45 @@ html{
               max-width: 300px;
               height: auto;
             }
-          
           }
+        }
 
-          .tweet-box{
-            background-color: $light-gray;
-            height:90px;
-            width: calc(100vw - (300px));
-            padding: 20px 50px 20px 40px;
-            margin:20px 0 0 ;
-            font-size:16px;
-            color:#434a54;
-            position: absolute;
-            bottom: 0;
-            &--form{
-              background-color: $white;
-              height:50px;
-              border: none;
-              box-sizing: border-box;
-              float: left;
-              padding: 0 10px;
-              width: calc(100% - 150px);
-            }
-            &--fa_icon{
-              float:left;
-              margin-right:160px;
-            }
-          
-          
-            &--send-botton{
-              color:white;
-              background-color: $light-blue;
-              height: 50px;
-              width: 60px;
-              text-align: center;
-              float:right;
-            }
-      }    
-      }
-  
-  }
+        .tweet-box{
+          background-color: $light-gray;
+          height:90px;
+          width: calc(100vw - (300px));
+          padding: 20px 50px 20px 40px;
+          margin:20px 0 0 ;
+          font-size:16px;
+          color:#434a54;
+          position: absolute;
+          bottom: 0;
+          display: block;
+          &--form{
+            background-color: $white;
+            height:50px;
+            border: none;
+            box-sizing: border-box;
+            float: left;
+            padding: 0 10px;
+            width: calc(100% - 150px);
+          }
+          &--fa_icon{
+            float:left;
+            margin-right:160px;
+          }
+          &--send-botton{
+            color:white;
+            background-color: $light-blue;
+            height: 50px;
+            width: 60px;
+            text-align: center;
+            float:right;
+          }
+    }    
+    }
+
+}
 
 // .new_file{
 //   input{
