@@ -1,25 +1,35 @@
 $(function(){
   function buildHTML(message){
+    var messege_username = {<p class="tweet-space--username"> ${message.user_name} </p>}
+    var message_body = { <a class="tweet-box--form"> ${message.body} </p> }
+    var message_image = { <img class="tweet-space--image" src="${message.image}" </p> }
+
     var html = `
-      <p class="tweet-space--username"> ${message.user_name} </p>
-      <a class="tweet-space--text"> ${message.body} </p>
-      <img class="tweet-space--image" src="${message.image}"" </p>
+      message_username
+      message_body
+      message_image
       `
     return html;
-  }
+  };
 
-$(function(){
-function buildHTML(message){
-  var bodyonly = `
-    <p class="tweet-space--username"> ${message.user_name} </p>
-    <a class="tweet-space--text"> ${message.body} </p>
-    `
-  return html;
-}
+  function buildHTML(message){
+    var bodyonly = `
+      message_username
+      message_body
+      `
+    return html;
+  };
+
+  function 
+
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var href = window.location.href
+    var prepend = $('.message').prepend(html)
+    var val = $('.tweet-box--send-botton').val('')
+
     $.ajax({
       url: href,
       type: "POST",
@@ -27,19 +37,18 @@ function buildHTML(message){
       dataType: 'json',
       processData: false,
       contentType: false
-    })
+    });
     .done(function(data){
-      if ( data.image == null ){
-        var bodyonly = buildHTML(data);
-          $('.message').prepend(html)
-          $('.tweet-box--send-botton').val('')
-        }
-      else{
-      var html = buildHTML(data);
-        $('.message').prepend(html)
-        $('.tweet-box--send-botton').val('')
-        }
-    })
+      $prepend
+      $val
+        if ( data.image == null ){
+          var bodyonly = buildHTML(data);
+          };
+        else{
+        var html = buildHTML(data);
+        var prepend
+          };
+      });
     .fail(function(){
       alert('error');
     })
