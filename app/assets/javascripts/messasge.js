@@ -1,31 +1,33 @@
 $(function(){
-  var messege_username = {<p class="tweet-space--username"> ${message.user_name} </p>};
-  var message_body = { <a class="tweet-box--form"> ${message.body} </p> };
-  var message_image = { <img class="tweet-space--image" src="${message.image}" </p> };
+  function buildHTML(message){
 
-    function message_HTML(message){
-      var html = `
-      message_username
-      message_body
-      message_image
+    var html = `
+      <p class="message--space--username"> ${message.user_name} </p>
+      <a class="message--space--timesstamp"> ${message.created_at} </a>
+      <p class="message--space--text"> ${message.body} </p>
+      <img class="message--space--image" src="${message.image}"" </p>
       `
     return html;
-  };
+  }
 
-    function image_null_HTML(message){
-      var bodyonly = `
-        message_username
-        message_body
-        `
-      return html;
-    };
+  function build2HTML(message){
+    var html = `
+      <p class="message--space--username"> ${message.user_name} </p>
+      <a class="message--space--timesstamp"> ${message.created_at} </a>
+      <p class="message--space--text"> ${message.body} </p>
+      `
+    return html;
+  }
+
+  function prepend_and_form_val(html){
+          $('.message').prepend(html)
+          $('.tweet-box--form').val('')
+  }
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var href = window.location.href;
-    var prepend = $('.message').prepend(html);
-    var val = $('.tweet-box--send-botton').val('');
 
     $.ajax({
       url: href,
@@ -34,17 +36,19 @@ $(function(){
       dataType: 'json',
       processData: false,
       contentType: false
-    });
+    })
+
+
     .done(function(data){
-      $prepend
-      $val
         if ( data.image == null ){
-          var message_HTML(data);
-          };
-        else{
-          var image_null_HTML(data);
-          };
-      });
+          var html = buildHTML(data);
+          prepend_and_form_val(html)
+          }
+        else {
+          var html = build2HTML(data);
+          prepend_and_form_val(html)
+          }
+      })
     .fail(function(){
       alert('error');
     })
