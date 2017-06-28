@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
       end
     else
       flash.now[:alert] = "エラーが発生しました"
-        ender :index
+        render :index
     end
   end
 
