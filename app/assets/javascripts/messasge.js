@@ -19,42 +19,32 @@ $(function(){
     return html;
   }
 
-  function prepend(html){
-          $('.message').prepend(html)
-  }
-
-  function val(html){
-          $('.tweet-box--form').val('')
-  }
-
   $('.tweet--js').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var href = window.location.href;
     $.ajax({
-      url: href,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
+    url: href,
+    type: "POST",
+    data: formData,
+    dataType: 'json',
+    processData: false,
+    contentType: false
     })
-
-
     .done(function(data){
-        if ( data.image == null ){
-          var html = noimage(data);
-          prepend(html)
-          val(html)
-          }
-        else {
-          var html = haveimage(data);
-          prepend(html)
-          val(html)
-          }
+    if ( data.image === null ){
+    var html = noimage(data);
+    $('.message').prepend(html)
+    $('.tweet-box--form').val('')
+    }
+    else {
+    var html = haveimage(data);
+    $('.message').prepend(html)
+    $('.tweet-box--form').val('')
+    }
       })
     .fail(function(){
-      alert('error');
+    alert('error');
     })
   })
 });

@@ -12,11 +12,12 @@ class MessagesController < ApplicationController
       respond_to do |format|
         format.json
         format.html {
-          redirect_to group_messages_path(params[:group_id]), notice: "メッセージが作成されました"}
+          redirect_to group_messages_path(params[:group_id]), notice: "メッセージが作成されました"
+        }
       end
     else
       flash.now[:alert] = "エラーが発生しました"
-        render :index
+      render :index
     end
   end
 
