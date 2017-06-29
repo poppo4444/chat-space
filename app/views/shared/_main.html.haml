@@ -4,15 +4,15 @@
   .group
     %p.group--name.group--name__font= @group.name
     %p.group--member.group--member__font= @group.users.name
-
-  - @messages.each do |message|
-    .tweet-space
-      %p.tweet-space--username= message.user.name
-      %a.tweet-space--timesstamp= message.created_at
-      %p.tweet-space--text= message.body
-      = image_tag message.image, class: "tweet-space--image"
+  .message
+    - @messages.each do |message|
+      .message--space
+        %p.message--space--username= message.user.name
+        %span.message--space--timesstamp= message.created_at
+        %p.message--space--text= message.body
+        = image_tag message.image, class: "message-space--image"
   .tweet-box
-    = form_for([@group, @message]) do |f|
+    = form_for [@group, @message],html: {class: 'tweet--js'} do |f|
       = f.text_field :body, class:"tweet-box--form",placeholder: "メッセージを入力してください"
       .new_file
         = f.file_field :image

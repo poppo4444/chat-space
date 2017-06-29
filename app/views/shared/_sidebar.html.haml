@@ -8,6 +8,6 @@
   - current_user.groups.each do |group|
     = link_to group_messages_path(group.id) do
       .group
-        .group--name.group--name__font group.name
+        .group--name.group--name__font= group.name
         %p.group--message.group--message__font
           = group_messages_present?(group)
