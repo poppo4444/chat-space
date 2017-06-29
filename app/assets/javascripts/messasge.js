@@ -4,11 +4,11 @@ $(function(){
       <p class="message--space--username"> ${message.user_name} </p>
       <span class="message--space--timesstamp"> ${message.created_at} </span>
       <p class="message--space--text"> ${message.body} </p>
-      <img class="message--space--image" src="${message.image}"" </p>
+      <img class="message--space--image" src="${message.image.url}"" </p>
       `;
     return html;
   }
-  function noimgae(message){
+  function noimage(message){
     var html = `
       <p class="message--space--username"> ${message.user_name} </p>
       <span class="message--space--timesstamp"> ${message.created_at} </span>
@@ -29,14 +29,15 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      if ( data.image === null ){
-      var html = noimage(data);
-      $('.message').prepend(html);
-      $('.tweet-box--form').val('');
-      }else {
-      var html = haveimage(data);
-      $('.message').prepend(html);
-      $('.tweet-box--form').val('');
+      console.log(data)
+      if ( data.image.url === null ){
+        var html = noimage(data);
+        $('.message').prepend(html);
+        $('.tweet-box--form').val('');
+      } else {
+        var html = haveimage(data);
+        $('.message').prepend(html);
+        $('.tweet-box--form').val('');
       }
     })
     .fail(function(){

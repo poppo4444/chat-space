@@ -10,7 +10,7 @@
         %p.message--space--username= message.user.name
         %span.message--space--timesstamp= message.created_at
         %p.message--space--text= message.body
-        = image_tag message.image, class: "tweet-space--image"
+        = image_tag message.image, class: "message-space--image"
   .tweet-box
     = form_for [@group, @message],html: {class: 'tweet--js'} do |f|
       = f.text_field :body, class:"tweet-box--form",placeholder: "メッセージを入力してください"
