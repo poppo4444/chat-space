@@ -29,7 +29,6 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      console.log(data)
       if ( data.image.url === null ){
         var html = noimage(data);
         $('.message').prepend(html);
