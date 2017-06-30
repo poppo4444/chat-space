@@ -25,7 +25,6 @@ function appendNoUser(user){
     user_serch_list.append(html);
 }
 
-
   $(" .chat-group-form__search.clearfix").on('keyup', function(){
     var input = $(".chat-group-form__input.js").val();
     $.ajax({
@@ -34,16 +33,14 @@ function appendNoUser(user){
       data: {keyword: input},
       dataType: 'json'
     })
-
     .done(function(users){
       $("#user-search-result").empty();
       if(users.length !== 0){
         users.forEach(function(user){
-          appendUser(user);
+        appendUser(user);
         });
-      }
-      else{
-          appendNoUser("一致するユーザーはいません");
+      }else{
+        appendNoUser("一致するユーザーはいません");
       }
     })
     .fail(function(){
