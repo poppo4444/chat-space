@@ -6,7 +6,7 @@
     %p.group--member.group--member__font= @group.users.name
   .message
     - @messages.each do |message|
-      .message--space
+      .message--space{"data-message-id": "#{message.id}"}
         %p.message--space--username= message.user.name
         %span.message--space--timesstamp= message.created_at
         %p.message--space--text= message.body
