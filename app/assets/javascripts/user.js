@@ -1,6 +1,7 @@
 $(function(){
 
 var user_serch_list = $("#user-search-result");
+var user_add_result = $("#user-add-result");
 
 function incremental_serch(users){
   if (users !== 0){
@@ -26,16 +27,13 @@ function incremental_serch(users){
 
 function add_groups(id,name){
   var html =` <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
-                <div class="chat-group-form__field--left">
-                  <div class="chat-group-form__label"></div>
-                </div>
                 <div class="chat-group-form__field--right">
                   <input name='group[user_ids][]' type='hidden' value='${ id }'>
                   <p class='chat-group-user__name'>${ name }</p>
                   <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
                 </div>
               </div>`
-  user_serch_list.append(html);
+  user_add_result.append(html);
 };
 
   $(" .chat-group-form__search.clearfix").on('keyup', function(){
