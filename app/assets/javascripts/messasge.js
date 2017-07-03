@@ -66,7 +66,6 @@ $(function(){
     var href = window.location.href;
     var last_id = {last_id: $(".message--space").first().data("id")}
     var group_id = $(".getid").data("group-id");
-    console.log(last_id)
     if(window.location.href.match(/\/groups\/\d+\/messages/)){
       $.ajax({
         url: "/groups/" + group_id + "/messages",
