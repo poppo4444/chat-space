@@ -2,19 +2,19 @@ $(function(){
   var add_message = $("")
   function haveimage(message){
     var html = `<div class="message--space" data-id="${message.id}">
-                  <p class="message--space--username"> ${message.user_name} </p>
-                  <span class="message--space--timesstamp"> ${message.created_at} </span>
-                  <p class="message--space--text"> ${message.body} </p>
-                  <img class="message--space--image" src="${message.image.url}"" </p>
-                </div>`;
+<p class="message--space--username"> ${message.user_name} </p>
+<span class="message--space--timesstamp"> ${message.created_at} </span>
+<p class="message--space--text"> ${message.body} </p>
+<img class="message--space--image" src="${message.image.url}"" </p>
+</div>`;
     return html;
   }
   function noimage(message){
     var html = `<div class="message--space" data-id="${message.id}">
-                  <p class="message--space--username"> ${message.user_name} </p>
-                  <span class="message--space--timesstamp"> ${message.created_at} </span>
-                  <p class="message--space--text"> ${message.body} </p>
-                </div>`;
+<p class="message--space--username"> ${message.user_name} </p>
+<span class="message--space--timesstamp"> ${message.created_at} </span>
+<p class="message--space--text"> ${message.body} </p>
+</div>`;
     return html;
   }
   function insert_message(message){
@@ -24,11 +24,11 @@ $(function(){
     insertImage = `<img class:"message-space--image" src="${message.image.url}">`;
     }
     var html =`<div class="message--space" data-id="${message.id}">
-                 <p class="message--space--username"> ${message.user_name}</p>
-                 <span class="message--space--timesstamp"> ${message.created_at}</span>
-                 <p class="message--space--text"> ${message.body}</p>
-                 ${insertImage}
-               </div>`;
+<p class="message--space--username"> ${message.user_name}</p>
+<span class="message--space--timesstamp"> ${message.created_at}</span>
+<p class="message--space--text"> ${message.body}</p>
+${insertImage}
+</div>`;
     return html
   }
   $('.tweet--js').on('submit', function(e){
@@ -70,9 +70,7 @@ $(function(){
       .done(function(json){
         var id = $(".message--space").first().data("id")
         var insertHTML = '';
-        console.log(id)
         json.forEach(function(message){
-          console.log(message);
           if(message.id > id){
             insertHTML = insert_message(message);
             $('.message').prepend(insertHTML);
