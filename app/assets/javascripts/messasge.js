@@ -1,24 +1,5 @@
 $(function(){
   var add_message = $("")
-  function haveimage(message){
-    var html = `
-      <div class="message--space" data-id="${message.id}">
-        <p class="message--space--username"> ${message.user_name} </p>
-        <span class="message--space--timesstamp"> ${message.created_at} </span>
-        <p class="message--space--text"> ${message.body} </p>
-        <img class="message--space--image" src="${message.image.url}">
-      </div>`;
-    return html;
-  }
-  function noimage(message){
-    var html = `
-      <div class="message--space" data-id="${message.id}">
-        <p class="message--space--username"> ${message.user_name} </p>
-        <span class="message--space--timesstamp"> ${message.created_at} </span>
-        <p class="message--space--text"> ${message.body} </p>
-      </div>`;
-    return html;
-  }
   function insert_message(message){
      var insertImage = '';
     if (message.image.url === null) { insertImage = ''
@@ -61,7 +42,6 @@ $(function(){
       alert('error');
     })
   })
-
   setInterval(function(){
     var href = window.location.href;
     var last_id = {last_id: $(".message--space").first().data("id")}
@@ -85,5 +65,4 @@ $(function(){
       });
     }
   } ,10000);
-
 });

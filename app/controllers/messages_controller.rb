@@ -8,7 +8,6 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.json  do
     @last_id = @group.messages.where('id > ?',params[:last_id])
-
       end
       format.html {render :index}
     end
