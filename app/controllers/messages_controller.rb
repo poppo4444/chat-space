@@ -1,9 +1,17 @@
 class MessagesController < ApplicationController
 
-  before_action :find_group_params_id, only: [:index,:create]
+  before_action :set_group, only: [:index,:create]
   before_action :authenticate_user!
   def index
+    @messages = @group.messages.includes(:user).order('created_at DESC')
     @message = Message.new
+    respond_to do |format|
+      format.json  do
+    @last_id = @group.messages.where('id > ?',params[:last_id])
+
+      end
+      format.html {render :index}
+    end
   end
 
   def create
@@ -27,9 +35,8 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:body, :image).merge(group_id: params[:group_id], user_id: current_user.id)
   end
 
-  def find_group_params_id
+  def set_group
     @group = Group.find(params[:group_id])
-    @messages = @group.messages.includes(:user).order('created_at DESC')
   end
 
 end

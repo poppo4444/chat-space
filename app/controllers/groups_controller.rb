@@ -25,7 +25,6 @@ class GroupsController < ApplicationController
   end
 
   def update
-    
     if @group.update(group_params)
       redirect_to root_path, notice: "グループが編集されました"
     else

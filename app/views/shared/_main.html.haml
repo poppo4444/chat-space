@@ -1,7 +1,7 @@
 .main
   = link_to edit_group_path(@group) do
     .edit-botton Edit
-  .group
+  .group.getid{data: {group_id: @group.id}}
     %p.group--name.group--name__font= @group.name
     %p.group--member.group--member__font= @group.users.name
   .message
