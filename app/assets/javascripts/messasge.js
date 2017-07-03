@@ -1,12 +1,13 @@
 $(function(){
   var add_message = $("")
   function haveimage(message){
-    var html = `<div class="message--space" data-id="${message.id}">
-                  <p class="message--space--username"> ${message.user_name} </p>
-                  <span class="message--space--timesstamp"> ${message.created_at} </span>
-                  <p class="message--space--text"> ${message.body} </p>
-                  <img class="message--space--image" src="${message.image.url}">
-                </div>`;
+    var html = `
+      <div class="message--space" data-id="${message.id}">
+        <p class="message--space--username"> ${message.user_name} </p>
+        <span class="message--space--timesstamp"> ${message.created_at} </span>
+        <p class="message--space--text"> ${message.body} </p>
+        <img class="message--space--image" src="${message.image.url}">
+      </div>`;
     return html;
   }
   function noimage(message){
@@ -24,12 +25,13 @@ $(function(){
     }else{
     insertImage = `<img class:"message-space--image" src="${message.image.url}">`;
     }
-    var html =`<div class="message--space" data-id="${message.id}">
-<p class="message--space--username"> ${message.user_name}</p>
-<span class="message--space--timesstamp"> ${message.created_at}</span>
-<p class="message--space--text"> ${message.body}</p>
-${insertImage}
-</div>`;
+    var html =`
+      <div class="message--space" data-id="${message.id}">
+        <p class="message--space--username"> ${message.user_name}</p>
+        <span class="message--space--timesstamp"> ${message.created_at}</span>
+        <p class="message--space--text"> ${message.body}</p>
+        ${insertImage}
+      </div>`;
     return html
   }
   $('.tweet--js').on('submit', function(e){
@@ -62,25 +64,27 @@ ${insertImage}
 
   setInterval(function(){
     var href = window.location.href;
-
+    var last_id = {last_id: $(".message--space").first().data("id")}
+    var group_id = $(".getid").data("group-id");
+    console.log(last_id)
+    if(window.location.href.match(/\/groups\/\d+\/messages/)){
       $.ajax({
-        url: href,
+        url: "/groups/" + group_id + "/messages",
         type: "get",
+        data: last_id,
         dataType: 'json'
       })
       .done(function(json){
-        var id = $(".message--space").first().data("id")
         var insertHTML = '';
         json.forEach(function(message){
-          if(message.id > id){
-            insertHTML = insert_message(message);
-            $('.message').prepend(insertHTML);
-          }
+          insertHTML = insert_message(message);
+          $('.message').prepend(insertHTML);
         });
       })
       .fail(function(){
         alert("自動更新に失敗しました");
       });
- } ,5000);
+    }
+  } ,10000);
 
 });
