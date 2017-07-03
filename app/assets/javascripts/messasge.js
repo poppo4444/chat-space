@@ -1,30 +1,29 @@
 $(function(){
   var add_message = $("")
   function haveimage(message){
-    var html = `
-      <p class="message--space--username"> ${message.user_name} </p>
-      <span class="message--space--timesstamp"> ${message.created_at} </span>
-      <p class="message--space--text"> ${message.body} </p>
-      <img class="message--space--image" src="${message.image.url}"" </p>
-      `;
+    var html = `<div class="message--space" data-id="${message.id}">
+                  <p class="message--space--username"> ${message.user_name} </p>
+                  <span class="message--space--timesstamp"> ${message.created_at} </span>
+                  <p class="message--space--text"> ${message.body} </p>
+                  <img class="message--space--image" src="${message.image.url}"" </p>
+                </div>`;
     return html;
   }
   function noimage(message){
-    var html = `
-      <p class="message--space--username"> ${message.user_name} </p>
-      <span class="message--space--timesstamp"> ${message.created_at} </span>
-      <p class="message--space--text"> ${message.body} </p>
-      `;
+    var html = `<div class="message--space" data-id="${message.id}">
+                  <p class="message--space--username"> ${message.user_name} </p>
+                  <span class="message--space--timesstamp"> ${message.created_at} </span>
+                  <p class="message--space--text"> ${message.body} </p>
+                </div>`;
     return html;
   }
   function insert_message(message){
      var insertImage = '';
-     console.log(message.image.url)
     if (message.image.url === null) { insertImage = ''
     }else{
     insertImage = `<img class:"message-space--image" src="${message.image.url}">`;
     }
-    var html =`<div class="message--space">
+    var html =`<div class="message--space" data-id="${message.id}">
                  <p class="message--space--username"> ${message.user_name}</p>
                  <span class="message--space--timesstamp"> ${message.created_at}</span>
                  <p class="message--space--text"> ${message.body}</p>
@@ -62,23 +61,27 @@ $(function(){
 
   setInterval(function(){
     var href = window.location.href;
-    $.ajax({
-      url: href,
-      type: "get",
-      dataType: 'json'
-    })
-    .done(function(json){
-      var id = $("div").attr("data-message-id")
-      var insertHTML = '';
-      json.forEach(function(message){
-        if(message.id > id)
-          insertHTML = insert_message(message);
-          $('.message--space').prepend(insertHTML);
+
+      $.ajax({
+        url: href,
+        type: "get",
+        dataType: 'json'
+      })
+      .done(function(json){
+        var id = $(".message--space").first().data("id")
+        var insertHTML = '';
+        console.log(id)
+        json.forEach(function(message){
+          console.log(message);
+          if(message.id > id){
+            insertHTML = insert_message(message);
+            $('.message').prepend(insertHTML);
+          }
+        });
+      })
+      .fail(function(){
+        alert("自動更新に失敗しました");
       });
-    })
-    .fail(function(){
-      alert("自動更新に失敗しました");
-    });
-  },10000);
+ } ,5000);
 
 });
