@@ -29,7 +29,6 @@ $(function(){
     })
     .done(function(data){
       if ( data.image.url === null ){
-        var html = noimage(data);
         $('.message').prepend(html);
         $('.tweet-box--form').val('');
       } else {
